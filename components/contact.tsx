@@ -33,8 +33,8 @@ export function Contact() {
           </p>
           <h2 className="h2-display mt-5 text-white">Berätta om ditt projekt</h2>
           <p className="mt-6 text-white/70">
-            Planerar du att bygga, renovera eller behöver du en kontrollansvarig?
-            Hör av dig till Freddy så diskuterar vi ditt projekt.
+            Planerar du att bygga eller renovera och behöver hjälp med ritningar,
+            bygglov eller projektering? Hör av dig så pratar vi ihop oss.
           </p>
         </motion.div>
 

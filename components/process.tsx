@@ -9,23 +9,22 @@ type Step = { title: string; description: string; Icon: LucideIcon };
 const STEPS: Step[] = [
   {
     title: "Samtal",
-    description: "Vi lyssnar på dina behov och diskuterar projektets förutsättningar.",
+    description: "Vi lyssnar på dina tankar och går igenom förutsättningarna för projektet.",
     Icon: MessageSquare,
   },
   {
     title: "Skiss",
-    description: "Tidiga skisser och illustrationer som visualiserar idén.",
+    description: "Tidiga skisser och illustrationer som ger idén form.",
     Icon: PenTool,
   },
   {
-    title: "Handlingar",
-    description: "Kompletta bygghandlingar, ritningar och beskrivningar i CAD.",
+    title: "Bygglov",
+    description: "Vi tar fram underlag, lämnar in och sköter dialogen med kommunen.",
     Icon: FileText,
   },
   {
-    title: "Uppföljning",
-    description:
-      "Projektledning, kontrollansvar och kvalitetssäkring genom hela bygget.",
+    title: "Genomförande",
+    description: "Bygghandlingar och stöd under byggets gång — handen däremellan tills huset står klart.",
     Icon: CheckCircle,
   },
 ];

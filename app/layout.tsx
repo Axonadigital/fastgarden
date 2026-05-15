@@ -16,9 +16,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Fastgården – Byggkonsult i Jämtland | Projektering & Kontrollansvar",
+  title: "Fastgården – Byggkonsult & ritningsstöd | Freddy Martinsson",
   description:
-    "Byggkonsult i Oviken, Jämtland. Projektering, ritningar, bygghandlingar och certifierad kontrollansvarig enligt PBL. Ring Freddy på 070-292 11 05.",
+    "Byggkonsult med bas i Oviken, Jämtland — verksam över hela Sverige. Projektering, ritningar, bygglov och projektledningsstöd. Ring Freddy på 070-292 11 05.",
 };
 
 const jsonLd = {
@@ -26,7 +26,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: COMPANY.legalName,
   description:
-    "Byggkonsult i Oviken, Jämtland. Projektering, ritningar, bygghandlingar och kontrollansvar enligt PBL.",
+    "Byggkonsult med bas i Oviken, Jämtland — verksam över hela Sverige. Projektering, ritningar, bygglov och projektledningsstöd.",
   url: `https://${COMPANY.domain}`,
   telephone: COMPANY.phone.display,
   email: COMPANY.email,

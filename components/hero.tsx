@@ -48,7 +48,7 @@ export function Hero() {
           className="text-[12px] uppercase tracking-[0.15em] font-medium text-[var(--color-warm)] flex items-center justify-center gap-3"
         >
           <span className="h-px w-6 bg-[var(--color-warm)]" />
-          Byggkonsult i Jämtland sedan {COMPANY.founded}
+          Tradition · Kvalitet · Omtanke
           <span className="h-px w-6 bg-[var(--color-warm)]" />
         </motion.p>
 
@@ -65,7 +65,7 @@ export function Hero() {
           variants={item}
           className="text-[var(--color-text-muted)] max-w-xl mx-auto"
         >
-          Projektering, ritningar och kontrollansvar för byggen i hela Jämtland och Härjedalen.
+          Vi hjälper dig att ta dig från din idé till färdig byggnad med ritningsstöd — genom skiss, bygglov och hela vägen fram.
         </motion.p>
 
         <motion.div
