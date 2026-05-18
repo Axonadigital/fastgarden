@@ -62,7 +62,7 @@ const PROJECTS: Project[] = [
     gallerySlug: "timmerhus-i-sadeln-are",
     images: [
       { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-hero.webp", alt: "Timmerhus i Sadeln, Åre" },
-      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-01.webp", alt: "Timmerhus i Sadeln, Åre — detalj" },
+      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-02.webp", alt: "Timmerhus i Sadeln, Åre — detalj" },
     ],
     tags: ["Fritidshus", "Timmer", "Åre"],
   },
@@ -76,7 +76,7 @@ const PROJECTS: Project[] = [
     gallerySlug: "stavlafthus-i-storhogna",
     images: [
       { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-hero.jpg", alt: "Stavlafthus i Storhogna" },
-      { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-02.webp", alt: "Stavlafthus i Storhogna — detalj" },
+      { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-01.webp", alt: "Stavlafthus i Storhogna — detalj" },
     ],
     tags: ["Fritidshus", "Stavlaft", "Tradition"],
   },
