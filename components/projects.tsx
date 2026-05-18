@@ -29,8 +29,8 @@ const PROJECTS: Project[] = [
     description:
       "Komplett ritningspaket för exklusivt fritidshus i timmer. Garage, entré och utemiljön ritades i nära samarbete med byggaren.",
     images: [
-      { src: "/images/projects/storhogna-timmerhus-1-exterior.webp", alt: "Timmerhus i Storhogna, exteriör i fjällmiljö" },
-      { src: "/images/projects/storhogna-timmerhus-2-interior.webp", alt: "Timmerhus i Storhogna, interiör" },
+      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-hero.webp", alt: "Timmerhus i Storhogna, exteriör i fjällmiljö" },
+      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-08.webp", alt: "Timmerhus i Storhogna, detalj" },
     ],
     tags: ["Fritidshus", "Timmer", "Nybyggnation"],
   },
@@ -42,8 +42,8 @@ const PROJECTS: Project[] = [
     description:
       "Hus, fönster och fast inredning i ett internationellt prisbelönt inredningsprojekt. Möbler och detaljer ritade på millimetern.",
     images: [
-      { src: "/images/projects/are-timmerhus-1-exterior.webp", alt: "Prisbelönt timmerhus i Åre, exteriör" },
-      { src: "/images/projects/are-timmerhus-2-interior.webp", alt: "Prisbelönt timmerhus i Åre, interiör med specialritade möbler" },
+      { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-hero.webp", alt: "Prisbelönt timmerhus i Åre, exteriör" },
+      { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-02.webp", alt: "Prisbelönt timmerhus i Åre, interiör med specialritade möbler" },
     ],
     tags: ["Fritidshus", "Inredning", "Prisbelönt"],
   },
@@ -55,8 +55,8 @@ const PROJECTS: Project[] = [
     description:
       "Ett av de senaste projekten — fritidshus i timmer med utsikt över fjällvärlden. Från första skiss till färdiga bygghandlingar.",
     images: [
-      { src: "/images/projects/are-sadeln-1-exterior.webp", alt: "Timmerhus i Sadeln, Åre" },
-      { src: "/images/projects/storhogna-timmerhus-3-utemiljo.webp", alt: "Detalj från timmerhus i fjällmiljö" },
+      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-hero.webp", alt: "Timmerhus i Sadeln, Åre" },
+      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-01.webp", alt: "Timmerhus i Sadeln, Åre — detalj" },
     ],
     tags: ["Fritidshus", "Timmer", "Åre"],
   },
@@ -68,8 +68,8 @@ const PROJECTS: Project[] = [
     description:
       "Stavlaftat fritidshus med traditionellt formspråk och modern komfort. Detaljritningar för snickerier, profiler och utförande.",
     images: [
-      { src: "/images/projects/storhogna-stavlafthus-1-exterior.jpg", alt: "Stavlafthus i Storhogna" },
-      { src: "/images/projects/storhogna-timmerhus-2-interior.webp", alt: "Interiörstil i fjällvilla" },
+      { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-hero.jpg", alt: "Stavlafthus i Storhogna" },
+      { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-02.webp", alt: "Stavlafthus i Storhogna — detalj" },
     ],
     tags: ["Fritidshus", "Stavlaft", "Tradition"],
   },
@@ -81,7 +81,8 @@ const PROJECTS: Project[] = [
     description:
       "Mindre projekt med stort karaktärsanslag — båthus ritat i samklang med omgivande fjäll- och vattenmiljö.",
     images: [
-      { src: "/images/projects/are-bathus-1-exterior.jpg", alt: "Båthus i Åre, exteriör" },
+      { src: "/images/projects/bathus-are/bathus-are-hero.jpg", alt: "Båthus i Åre, exteriör" },
+      { src: "/images/projects/bathus-are/bathus-are-03.jpg", alt: "Båthus i Åre — detalj" },
     ],
     tags: ["Båthus", "Mindre projekt", "Åre"],
   },
