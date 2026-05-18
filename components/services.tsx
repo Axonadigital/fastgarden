@@ -4,34 +4,19 @@ import { motion } from "framer-motion";
 
 const SERVICES = [
   {
-    name: "Projektering och ritningar",
+    name: "Projektering och bygghandlingar",
     description:
-      "Upprättande av ritningar, beskrivningar och illustrationer i CAD. Från tidiga skisser till kompletta bygghandlingar inom disciplin A.",
+      "Skisser, ritningar och kompletta bygghandlingar i CAD — från första idé till underlag redo för produktion. Mycket av inspirationen kommer från snickerier och detaljer på Hedegården.",
   },
   {
-    name: "Bygghandlingar",
+    name: "Bygglovsprocess och myndighetskontakt",
     description:
-      "Färdiga handlingar för bygglov och produktion. Vi tar fram det underlag som krävs för att ditt projekt ska bli verklighet.",
+      "Vi tar fram underlag, lämnar in och sköter dialogen med kommunen — handen däremellan dig som byggherre och myndigheterna.",
   },
   {
-    name: "Projektledning",
+    name: "Projektledningsstöd och tekniska utredningar",
     description:
-      "Stöd genom hela byggets gång — planering, uppföljning och samordning för att hålla tid och budget.",
-  },
-  {
-    name: "Kontrollansvarig enligt PBL",
-    description:
-      "Certifierad kontrollansvarig sedan 2015. Vi ser till att bygget följer plan- och bygglagen.",
-  },
-  {
-    name: "Tekniska utredningar",
-    description:
-      "Utredningar och bedömningar vid renovering, ombyggnad eller statusbedömning av befintliga byggnader.",
-  },
-  {
-    name: "Byggledning och byggkontroll",
-    description:
-      "Kvalitetssäkring och kontroll på plats. Vi representerar byggherren och ser till att utförandet håller måttet.",
+      "Stöd genom byggets gång och utredningar i samarbete med konstruktörer och installatörer — så att helheten håller hela vägen.",
   },
 ];
 
@@ -56,11 +41,12 @@ export function Services() {
         >
           <p className="overline !text-[var(--color-accent)]">Tjänster</p>
           <h2 className="h2-display mt-5 text-[var(--color-text)]">
-            Från skiss till färdig bygghandling
+            Från idé till färdig byggnad
           </h2>
           <p className="mt-6 text-[var(--color-text-muted)]">
-            Vi erbjuder konsulttjänster inom projektering, byggledning och kontrollansvar.
-            Allt från tidiga skisser i CAD till färdiga handlingar inom disciplin A.
+            Vi hjälper dig att ta dig från din idé till färdig byggnad med
+            ritningsstöd — genom tidiga skeden, bygglov och hela vägen fram till
+            produktion.
           </p>
         </motion.div>
 

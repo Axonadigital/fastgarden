@@ -1,9 +1,9 @@
 export const COMPANY = {
   legalName: "Fastgården - Tradition, Kvalitet, Omtanke",
   displayName: "Fastgården",
-  tagline: "Tradition, Kvalitet, Omtanke",
+  tagline: "Tradition, kvalitet, omtanke",
   owner: "Freddy Martinsson",
-  ownerTitle: "Byggingenjör & Certifierad Kontrollansvarig",
+  ownerTitle: "Byggingenjör & byggkonsult",
   founded: 2015,
   businessForm: "Enskild näringsidkare",
 
@@ -31,13 +31,18 @@ export const COMPANY = {
     linkedin: "",
   },
 
-  serviceArea: "Jämtland och Härjedalen",
+  serviceArea: "Jämtland, Härjedalen och Stockholm",
   services: [
-    "Projektering och ritningar",
-    "Bygghandlingar",
-    "Projektledning",
-    "Kontrollansvarig enligt PBL",
-    "Tekniska utredningar",
-    "Byggledning och byggkontroll",
+    "Projektering och bygghandlingar",
+    "Bygglovsprocess och myndighetskontakt",
+    "Projektledningsstöd och tekniska utredningar",
+  ],
+
+  partners: [
+    {
+      name: "Residensbygg",
+      url: "https://residensbygg.se",
+      description: "Nära samarbete sedan flera år på exklusiva fritids- och bostadsprojekt.",
+    },
   ],
 } as const;
