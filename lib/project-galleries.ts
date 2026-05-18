@@ -11,7 +11,6 @@ export const PROJECT_GALLERIES: Record<string, string[]> = {
     "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-04.webp",
     "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-05.webp",
     "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-06.webp",
-    "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-07.webp",
     "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-08.webp",
   ],
   "timmerhus-i-are": [
@@ -60,8 +59,6 @@ export const PROJECT_GALLERIES: Record<string, string[]> = {
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-10.jpg",
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-11.jpg",
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-12.jpg",
-    "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-13.jpg",
-    "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-14.jpg",
   ],
   "bathus-are": [
     "/images/projects/bathus-are/bathus-are-hero.jpg",
