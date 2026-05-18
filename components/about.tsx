@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Camera } from "lucide-react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 10 },
@@ -29,32 +29,17 @@ export function About() {
             viewport={{ once: true, margin: "-80px" }}
             className="md:col-span-5"
           >
-            <div className="relative bg-[var(--color-accent-muted)] border border-[var(--color-accent)]/20 aspect-[3/4] overflow-hidden flex flex-col items-center justify-center">
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-[0.08]"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(45deg, var(--color-accent) 0, var(--color-accent) 1px, transparent 1px, transparent 12px)",
-                }}
+            <div className="relative aspect-[3/4] overflow-hidden shadow-[0_20px_60px_-20px_rgba(74,93,76,0.25)]">
+              <Image
+                src="/images/fjällen-vinter.png"
+                alt="Vinterpanorama över Oviksfjällen från Hedegården"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover"
               />
-              <Camera
-                size={48}
-                strokeWidth={1}
-                className="relative text-[var(--color-accent)]"
-              />
-              <p className="relative mt-5 text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent)] font-medium">
-                Hedegården · Bild kommer
-              </p>
-              <p className="relative mt-4 font-serif text-2xl text-[var(--color-text)] text-center px-8 leading-tight">
-                Matsalen där det började
-              </p>
-              <p className="relative mt-3 text-[12px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] text-center px-6">
-                Timmer · Generationer · Tradition
-              </p>
             </div>
             <p className="mt-4 text-[12px] uppercase tracking-[0.15em] text-[var(--color-text-light)] text-center">
-              Freddy Martinsson · Hedegården, Oviken
+              Vy från Hedegården · Oviken, Jämtland
             </p>
           </motion.div>
 
