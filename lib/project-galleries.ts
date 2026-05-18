@@ -44,7 +44,6 @@ export const PROJECT_GALLERIES: Record<string, string[]> = {
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-hero.jpg",
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-01.webp",
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-04.webp",
-    "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-05.webp",
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-06.webp",
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-07.webp",
     "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-08.webp",
