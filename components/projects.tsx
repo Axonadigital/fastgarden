@@ -1,7 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Maximize2 } from "lucide-react";
+import { Lightbox } from "./lightbox";
+import { PROJECT_GALLERIES } from "@/lib/project-galleries";
 
 type ProjectImage = {
   src: string;
@@ -14,6 +18,7 @@ type Project = {
   year: string;
   role: string;
   description: string;
+  gallerySlug: string;
   images: ProjectImage[];
   tags: string[];
 };
@@ -26,6 +31,7 @@ const PROJECTS: Project[] = [
     role: "Projektering, ritningar & utemiljö",
     description:
       "Komplett ritningspaket för exklusivt fritidshus i timmer. Garage, entré och utemiljön ritades i nära samarbete med byggaren.",
+    gallerySlug: "timmerhus-i-storhogna",
     images: [
       { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-hero.webp", alt: "Timmerhus i Storhogna, exteriör i fjällmiljö" },
       { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-08.webp", alt: "Timmerhus i Storhogna, interiör" },
@@ -40,6 +46,7 @@ const PROJECTS: Project[] = [
     role: "Hus, fönster & fast inredning",
     description:
       "Hus, fönster och fast inredning i ett internationellt prisbelönt inredningsprojekt. Möbler och detaljer ritade på millimetern.",
+    gallerySlug: "timmerhus-i-are",
     images: [
       { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-hero.webp", alt: "Prisbelönt timmerhus i Åre, exteriör" },
       { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-02.webp", alt: "Prisbelönt timmerhus i Åre, interiör med specialritade möbler" },
@@ -53,6 +60,7 @@ const PROJECTS: Project[] = [
     role: "Projektering & bygglov",
     description:
       "Ett av de senaste projekten — fritidshus i timmer med utsikt över fjällvärlden. Från första skiss till färdiga bygghandlingar.",
+    gallerySlug: "timmerhus-i-sadeln-are",
     images: [
       { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-hero.webp", alt: "Timmerhus i Sadeln, Åre" },
     ],
@@ -65,6 +73,7 @@ const PROJECTS: Project[] = [
     role: "Projektering & detaljritningar",
     description:
       "Stavlaftat fritidshus med traditionellt formspråk och modern komfort. Detaljritningar för snickerier, profiler och utförande.",
+    gallerySlug: "stavlafthus-i-storhogna",
     images: [
       { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-hero.jpg", alt: "Stavlafthus i Storhogna" },
     ],
@@ -77,6 +86,7 @@ const PROJECTS: Project[] = [
     role: "Projektering",
     description:
       "Mindre projekt med stort karaktärsanslag — båthus ritat i samklang med omgivande fjäll- och vattenmiljö.",
+    gallerySlug: "bathus-are",
     images: [
       { src: "/images/projects/bathus-are/bathus-are-hero.jpg", alt: "Båthus i Åre, exteriör" },
     ],
@@ -89,83 +99,145 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
+type OpenLightbox = (project: Project, src: string) => void;
+
+function ImageButton({
+  src,
+  alt,
+  sizes,
+  onOpen,
+  className,
+  imageClassName,
+  rounded,
+  badge = false,
+}: {
+  src: string;
+  alt: string;
+  sizes: string;
+  onOpen: () => void;
+  className: string;
+  imageClassName?: string;
+  rounded: string;
+  badge?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={`Öppna galleri: ${alt}`}
+      className={`group cursor-zoom-in block ${className}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        className={`object-cover transition-transform duration-500 group-hover:scale-[1.02] ${imageClassName ?? ""}`}
+      />
+      <div
+        aria-hidden
+        className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/15 ${rounded}`}
+      />
+      {badge && (
+        <div
+          aria-hidden
+          className="absolute bottom-3 right-3 md:bottom-4 md:right-4 flex items-center gap-2 bg-white/90 backdrop-blur-md text-[var(--color-text)] px-3 py-1.5 text-[11px] uppercase tracking-[0.15em] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <Maximize2 size={12} strokeWidth={1.5} />
+          Visa galleri
+        </div>
+      )}
+    </button>
+  );
+}
+
 function ProjectComposition({
   project,
   flip,
+  onOpen,
 }: {
   project: Project;
   flip: boolean;
+  onOpen: OpenLightbox;
 }) {
   const [main, ...overlays] = project.images;
 
   if (project.images.length === 1) {
     return (
-      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-[18px] md:rounded-[24px] shadow-[0_20px_60px_-20px_rgba(74,93,76,0.25)]">
-        <Image
-          src={main.src}
-          alt={main.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 80vw"
-          className="object-cover"
-        />
-      </div>
+      <ImageButton
+        src={main.src}
+        alt={main.alt}
+        sizes="(max-width: 768px) 100vw, 80vw"
+        onOpen={() => onOpen(project, main.src)}
+        className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-[18px] md:rounded-[24px] shadow-[0_20px_60px_-20px_rgba(74,93,76,0.25)] w-full"
+        rounded="rounded-[18px] md:rounded-[24px]"
+        badge
+      />
     );
   }
 
   return (
     <div className={`relative ${flip ? "md:[direction:rtl]" : ""}`}>
-      {/* Huvudbild — stor bakgrund */}
-      <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-[18px] md:rounded-[24px] md:[direction:ltr] shadow-[0_20px_60px_-20px_rgba(74,93,76,0.25)]">
-        <Image
-          src={main.src}
-          alt={main.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 75vw"
-          className="object-cover"
-          priority={false}
-        />
-      </div>
+      <ImageButton
+        src={main.src}
+        alt={main.alt}
+        sizes="(max-width: 768px) 100vw, 75vw"
+        onOpen={() => onOpen(project, main.src)}
+        className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-[18px] md:rounded-[24px] md:[direction:ltr] shadow-[0_20px_60px_-20px_rgba(74,93,76,0.25)] w-full"
+        rounded="rounded-[18px] md:rounded-[24px]"
+        badge
+      />
 
-      {/* Polaroid 1 — flyter ovanpå nedre högra hörnet */}
       {overlays[0] && (
-        <div
+        <ImageButton
+          src={overlays[0].src}
+          alt={overlays[0].alt}
+          sizes="(max-width: 768px) 50vw, 30vw"
+          onOpen={() => onOpen(project, overlays[0].src)}
           className={`absolute z-10 w-[48%] md:w-[34%] aspect-[3/4] overflow-hidden rounded-[16px] md:rounded-[20px] border-[3px] md:border-[6px] border-[var(--color-bg)] shadow-[0_24px_50px_-15px_rgba(0,0,0,0.35)] md:[direction:ltr]
             bottom-[-8%] md:bottom-[-12%]
             ${flip ? "left-[5%] md:left-[6%]" : "right-[5%] md:right-[6%]"}
           `}
-        >
-          <Image
-            src={overlays[0].src}
-            alt={overlays[0].alt}
-            fill
-            sizes="(max-width: 768px) 50vw, 30vw"
-            className="object-cover"
-          />
-        </div>
+          rounded="rounded-[16px] md:rounded-[20px]"
+        />
       )}
 
-      {/* Polaroid 2 — flyter ovanpå övre kanten på motsatt sida */}
       {overlays[1] && (
-        <div
+        <ImageButton
+          src={overlays[1].src}
+          alt={overlays[1].alt}
+          sizes="25vw"
+          onOpen={() => onOpen(project, overlays[1].src)}
           className={`hidden md:block absolute z-10 w-[26%] aspect-[4/5] overflow-hidden rounded-[20px] border-[6px] border-[var(--color-bg)] shadow-[0_24px_50px_-15px_rgba(0,0,0,0.35)] md:[direction:ltr]
             top-[-10%]
             ${flip ? "right-[8%]" : "left-[8%]"}
           `}
-        >
-          <Image
-            src={overlays[1].src}
-            alt={overlays[1].alt}
-            fill
-            sizes="25vw"
-            className="object-cover"
-          />
-        </div>
+          rounded="rounded-[20px]"
+        />
       )}
     </div>
   );
 }
 
 export function Projects() {
+  const [lightbox, setLightbox] = useState<{
+    open: boolean;
+    gallery: string[];
+    alt: string;
+    initialIndex: number;
+  }>({ open: false, gallery: [], alt: "", initialIndex: 0 });
+
+  const openLightbox: OpenLightbox = (project, src) => {
+    const gallery = PROJECT_GALLERIES[project.gallerySlug] ?? project.images.map((i) => i.src);
+    const idx = Math.max(0, gallery.indexOf(src));
+    setLightbox({
+      open: true,
+      gallery,
+      alt: project.name,
+      initialIndex: idx,
+    });
+  };
+
   return (
     <section
       id="projekt"
@@ -187,6 +259,9 @@ export function Projects() {
             Ett urval av projekt vi ritat — fritidshus i fjällmiljö, exklusiva
             bostäder och detaljarbeten för inredningar i högsta klass. Många
             är gjorda i nära samarbete med Residensbygg.
+            <span className="block mt-3 text-[13px] text-[var(--color-text-light)] italic">
+              Klicka på en bild för att bläddra genom hela projektgalleriet.
+            </span>
           </p>
         </motion.div>
 
@@ -194,6 +269,7 @@ export function Projects() {
           {PROJECTS.map((project, idx) => {
             const flip = idx % 2 === 1;
             const hasOverlays = project.images.length > 1;
+            const galleryCount = (PROJECT_GALLERIES[project.gallerySlug] ?? []).length;
 
             return (
               <motion.article
@@ -206,19 +282,11 @@ export function Projects() {
                   hasOverlays ? "pb-16 md:pb-24" : ""
                 }`}
               >
-                <div
-                  className={`md:col-span-8 ${
-                    flip ? "md:order-2" : "md:order-1"
-                  }`}
-                >
-                  <ProjectComposition project={project} flip={flip} />
+                <div className={`md:col-span-8 ${flip ? "md:order-2" : "md:order-1"}`}>
+                  <ProjectComposition project={project} flip={flip} onOpen={openLightbox} />
                 </div>
 
-                <div
-                  className={`md:col-span-4 ${
-                    flip ? "md:order-1 md:pr-4" : "md:order-2 md:pl-4"
-                  }`}
-                >
+                <div className={`md:col-span-4 ${flip ? "md:order-1 md:pr-4" : "md:order-2 md:pl-4"}`}>
                   <p className="overline">
                     Projekt {String(idx + 1).padStart(2, "0")}
                   </p>
@@ -246,6 +314,17 @@ export function Projects() {
                       </li>
                     ))}
                   </ul>
+
+                  {galleryCount > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(project, project.images[0].src)}
+                      className="mt-6 inline-flex items-center gap-2 text-[13px] text-[var(--color-accent)] hover:text-[var(--color-warm)] transition-colors underline-offset-4 hover:underline"
+                    >
+                      Se alla {galleryCount} bilder
+                      <Maximize2 size={13} strokeWidth={1.5} />
+                    </button>
+                  )}
                 </div>
               </motion.article>
             );
@@ -263,6 +342,14 @@ export function Projects() {
           till kund och samarbetspartner.
         </motion.p>
       </div>
+
+      <Lightbox
+        images={lightbox.gallery}
+        alt={lightbox.alt}
+        initialIndex={lightbox.initialIndex}
+        open={lightbox.open}
+        onClose={() => setLightbox((s) => ({ ...s, open: false }))}
+      />
     </section>
   );
 }
