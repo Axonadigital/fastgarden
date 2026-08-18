@@ -52,7 +52,7 @@ export function About() {
           >
             <p className="overline !text-[var(--color-warm)]">Om Fastgården</p>
             <h2 className="h2-display mt-5 text-[var(--color-text)]">
-              Fastgården i Oviken — blick mot fjällen
+              Med rötter i en släktgård och blick mot fjällen
             </h2>
 
             <div className="mt-8 space-y-5 text-[var(--color-text-muted)]">
