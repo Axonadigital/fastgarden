@@ -15,10 +15,27 @@ const instrumentSerif = Instrument_Serif({
   weight: ["400"],
 });
 
+const title = "Fastgården – Byggkonsult & ritningsstöd | Freddy Martinsson";
+const description =
+  "Byggkonsult med bas i Oviken, Jämtland — verksam över hela Sverige. Projektering, ritningar, bygglov och projektledningsstöd. Ring Freddy på 070-292 11 05.";
+
 export const metadata: Metadata = {
-  title: "Fastgården – Byggkonsult & ritningsstöd | Freddy Martinsson",
-  description:
-    "Byggkonsult med bas i Oviken, Jämtland — verksam över hela Sverige. Projektering, ritningar, bygglov och projektledningsstöd. Ring Freddy på 070-292 11 05.",
+  metadataBase: new URL(`https://${COMPANY.domain}`),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: `https://${COMPANY.domain}`,
+    siteName: COMPANY.displayName,
+    locale: "sv_SE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 const jsonLd = {

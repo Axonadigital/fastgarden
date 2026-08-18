@@ -31,7 +31,7 @@ export function About() {
           >
             <div className="relative aspect-[3/4] overflow-hidden shadow-[0_20px_60px_-20px_rgba(74,93,76,0.25)]">
               <Image
-                src="/images/fjällen-vinter.png"
+                src="/images/fjällen-vinter.webp"
                 alt="Vinterpanorama över Oviksfjällen"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
