@@ -6,7 +6,6 @@ import { Menu, Phone, X } from "lucide-react";
 import { COMPANY } from "@/lib/company";
 
 const NAV = [
-  { label: "Tjänster", href: "#tjanster" },
   { label: "Om oss", href: "#om-oss" },
   { label: "Projekt", href: "#projekt" },
   { label: "Kontakt", href: "#kontakt" },

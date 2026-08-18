@@ -80,10 +80,10 @@ export function Hero() {
             Ring Freddy
           </a>
           <a
-            href="#tjanster"
+            href="#projekt"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[var(--color-border-dark)] hover:border-[var(--color-text)] text-[var(--color-text)] px-7 py-3.5 text-[15px] font-medium transition-colors min-h-[48px]"
           >
-            Se tjänster
+            Se projekt
             <ArrowDown size={16} strokeWidth={1.5} />
           </a>
         </motion.div>

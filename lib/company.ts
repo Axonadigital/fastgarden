@@ -32,17 +32,4 @@ export const COMPANY = {
   },
 
   serviceArea: "Jämtland, Härjedalen och Stockholm",
-  services: [
-    "Projektering och bygghandlingar",
-    "Bygglovsprocess och myndighetskontakt",
-    "Projektledningsstöd och tekniska utredningar",
-  ],
-
-  partners: [
-    {
-      name: "Residensbygg",
-      url: "https://residensbygg.se",
-      description: "Nära samarbete sedan flera år på exklusiva fritids- och bostadsprojekt.",
-    },
-  ],
 } as const;

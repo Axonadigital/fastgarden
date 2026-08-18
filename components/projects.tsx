@@ -14,85 +14,50 @@ type ProjectImage = {
 
 type Project = {
   name: string;
-  location: string;
-  year: string;
-  role: string;
-  description: string;
   gallerySlug: string;
   images: ProjectImage[];
-  tags: string[];
 };
 
 const PROJECTS: Project[] = [
   {
-    name: "Timmerhus, Storhogna",
-    location: "Vemdalen",
-    year: "2024",
-    role: "Projektering, ritningar & utemiljö",
-    description:
-      "Komplett ritningspaket för exklusivt fritidshus i timmer. Garage, entré och utemiljön ritades i nära samarbete med byggaren.",
-    gallerySlug: "timmerhus-i-storhogna",
+    name: "Timmerhus, Åre",
+    gallerySlug: "timmerhus-i-sadeln-are",
     images: [
-      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-hero.webp", alt: "Timmerhus i Storhogna, exteriör i fjällmiljö" },
-      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-08.webp", alt: "Timmerhus i Storhogna, detalj" },
+      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-hero.webp", alt: "Timmerhus, Åre" },
+      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-02.webp", alt: "Timmerhus, Åre — detalj" },
     ],
-    tags: ["Fritidshus", "Timmer", "Nybyggnation"],
   },
   {
     name: "Prisbelönt timmerhus, Åre",
-    location: "Åre",
-    year: "2023",
-    role: "Hus, fönster & fast inredning",
-    description:
-      "Hus, fönster och fast inredning i ett internationellt prisbelönt inredningsprojekt. Möbler och detaljer ritade på millimetern.",
     gallerySlug: "timmerhus-i-are",
     images: [
       { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-hero.webp", alt: "Prisbelönt timmerhus i Åre, exteriör" },
       { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-02.webp", alt: "Prisbelönt timmerhus i Åre, interiör med specialritade möbler" },
     ],
-    tags: ["Fritidshus", "Inredning", "Prisbelönt"],
-  },
-  {
-    name: "Timmerhus i Sadeln",
-    location: "Åre",
-    year: "2025",
-    role: "Projektering & bygglov",
-    description:
-      "Ett av de senaste projekten — fritidshus i timmer med utsikt över fjällvärlden. Från första skiss till färdiga bygghandlingar.",
-    gallerySlug: "timmerhus-i-sadeln-are",
-    images: [
-      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-hero.webp", alt: "Timmerhus i Sadeln, Åre" },
-      { src: "/images/projects/timmerhus-i-sadeln-are/timmerhus-i-sadeln-are-02.webp", alt: "Timmerhus i Sadeln, Åre — detalj" },
-    ],
-    tags: ["Fritidshus", "Timmer", "Åre"],
   },
   {
     name: "Stavlafthus, Storhogna",
-    location: "Vemdalen",
-    year: "2024",
-    role: "Projektering & detaljritningar",
-    description:
-      "Stavlaftat fritidshus med traditionellt formspråk och modern komfort. Detaljritningar för snickerier, profiler och utförande.",
     gallerySlug: "stavlafthus-i-storhogna",
     images: [
       { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-hero.jpg", alt: "Stavlafthus i Storhogna" },
       { src: "/images/projects/stavlafthus-i-storhogna/stavlafthus-i-storhogna-01.webp", alt: "Stavlafthus i Storhogna — detalj" },
     ],
-    tags: ["Fritidshus", "Stavlaft", "Tradition"],
   },
   {
     name: "Båthus, Åre",
-    location: "Åre",
-    year: "2024",
-    role: "Projektering",
-    description:
-      "Mindre projekt med stort karaktärsanslag — båthus ritat i samklang med omgivande fjäll- och vattenmiljö.",
     gallerySlug: "bathus-are",
     images: [
       { src: "/images/projects/bathus-are/bathus-are-hero.jpg", alt: "Båthus i Åre, exteriör" },
       { src: "/images/projects/bathus-are/bathus-are-03.jpg", alt: "Båthus i Åre — detalj" },
     ],
-    tags: ["Båthus", "Mindre projekt", "Åre"],
+  },
+  {
+    name: "Timmerhus, Storhogna",
+    gallerySlug: "timmerhus-i-storhogna",
+    images: [
+      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-hero.webp", alt: "Timmerhus i Storhogna, exteriör i fjällmiljö" },
+      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-08.webp", alt: "Timmerhus i Storhogna, detalj" },
+    ],
   },
 ];
 
@@ -184,7 +149,7 @@ export function Projects() {
         <div className="absolute top-8 md:top-12 left-0 right-0 z-10 pointer-events-none">
           <div className="max-w-6xl mx-auto px-5 md:px-8 lg:px-16">
             <p className="overline !text-[var(--color-warm-light)]">
-              Referensprojekt {String(index + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
+              Projekt {String(index + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
             </p>
           </div>
         </div>
@@ -200,29 +165,9 @@ export function Projects() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="md:col-span-7 lg:col-span-6 max-w-2xl pointer-events-auto"
               >
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-warm-light)] font-medium">
-                  {slide.location} · {slide.year}
-                </p>
-                <h2 className="font-serif text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] mt-5">
+                <h2 className="font-serif text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05]">
                   {slide.name}
                 </h2>
-                <p className="font-serif italic text-[clamp(1rem,1.6vw,1.2rem)] text-[var(--color-warm-light)] mt-5">
-                  {slide.role}
-                </p>
-                <p className="mt-6 text-white/85 text-[15px] md:text-[16px] leading-relaxed max-w-xl">
-                  {slide.description}
-                </p>
-
-                <ul className="mt-7 flex flex-wrap gap-2">
-                  {slide.tags.map((tag) => (
-                    <li
-                      key={tag}
-                      className="text-[11px] uppercase tracking-[0.12em] text-white/70 border border-white/25 px-2.5 py-1"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
 
                 {fullGallery.length > 1 && (
                   <button

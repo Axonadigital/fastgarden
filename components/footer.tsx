@@ -1,10 +1,8 @@
 import { COMPANY } from "@/lib/company";
 
 const LINKS = [
-  { label: "Tjänster", href: "#tjanster" },
   { label: "Om oss", href: "#om-oss" },
   { label: "Projekt", href: "#projekt" },
-  { label: "Samarbeten", href: "#samarbeten" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 

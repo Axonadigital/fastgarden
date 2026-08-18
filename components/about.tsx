@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 10 },
@@ -10,7 +11,6 @@ const fadeIn = {
 
 const STATS = [
   { value: "2015", label: "Verksam sedan" },
-  { value: "Hedegården", label: "Bas i Oviken" },
   { value: "Hela landet", label: "Verksamhetsområde" },
 ];
 
@@ -32,14 +32,14 @@ export function About() {
             <div className="relative aspect-[3/4] overflow-hidden shadow-[0_20px_60px_-20px_rgba(74,93,76,0.25)]">
               <Image
                 src="/images/fjällen-vinter.png"
-                alt="Vinterpanorama över Oviksfjällen från Hedegården"
+                alt="Vinterpanorama över Oviksfjällen"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
               />
             </div>
             <p className="mt-4 text-[12px] uppercase tracking-[0.15em] text-[var(--color-text-light)] text-center">
-              Vy från Hedegården · Oviken, Jämtland
+              Oviksfjällen, Jämtland
             </p>
           </motion.div>
 
@@ -52,34 +52,33 @@ export function About() {
           >
             <p className="overline !text-[var(--color-warm)]">Om Fastgården</p>
             <h2 className="h2-display mt-5 text-[var(--color-text)]">
-              Med rötter i en släktgård och blick mot fjällen
+              Fastgården i Oviken — blick mot fjällen
             </h2>
 
             <div className="mt-8 space-y-5 text-[var(--color-text-muted)]">
               <p>
-                Fastgården drivs av Freddy Martinsson, byggingenjör och fristående
-                byggkonsult sedan 2015. Bas på <strong className="text-[var(--color-text)] font-medium">Hedegården i Oviken</strong> — en släktgård som
-                gått i arv genom generationer. Härifrån ritar vi exklusiva
-                fritids- och bostadshus med uppdrag i hela landet, ofta i samarbete
-                med byggare som specialiserat sig på det exklusiva segmentet.
+                Fastgården drivs av Freddy Martinsson, fristående byggkonsult
+                sedan 2015 med bas i Oviken. Uppdrag i fjällvärlden kring Åre
+                och Storhogna såväl som i övriga landet — från idé till färdig
+                byggnad med ritningsstöd genom skiss, bygglov och
+                bygghandlingar.
               </p>
               <p>
-                Mycket av det vi ritar idag har sina rötter i gårdens egna
-                snickerier — trappor, profiler, fast inredning och möbler som
-                tagits fram av tidigare generationer. Det är därifrån intresset
-                kommer, och det är där hantverket lever vidare. Tradition och
-                omtanke är inte tomma ord — det är hur vi jobbar varje dag.
-              </p>
-              <p>
-                Vi hjälper dig att ta dig från din idé till färdig byggnad med
-                ritningsstöd — i tidiga skeden, genom bygglovsprocessen och i
-                kontakten med kommun, konstruktörer och installatörer. Mycket
-                handlar om att vara handen däremellan: mellan idén och
-                verkligheten, mellan byggherren och byråkratin.
+                Vi har ett nära samarbete med{" "}
+                <a
+                  href="https://residensbygg.se"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-[var(--color-accent)] font-medium underline-offset-4 hover:underline inline-flex items-center gap-1"
+                >
+                  Residensbygg
+                  <ArrowUpRight size={15} strokeWidth={1.5} />
+                </a>{" "}
+                sedan flera år tillbaka.
               </p>
             </div>
 
-            <dl className="mt-12 grid grid-cols-3 border-t border-[var(--color-border)]">
+            <dl className="mt-12 grid grid-cols-2 border-t border-[var(--color-border)]">
               {STATS.map((stat, i) => (
                 <div
                   key={stat.label}
