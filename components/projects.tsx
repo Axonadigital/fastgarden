@@ -173,7 +173,7 @@ export function Projects() {
                   <button
                     type="button"
                     onClick={() => openLightboxAt(slide.images[0].src)}
-                    className="mt-7 inline-flex items-center gap-2 bg-white/10 border border-white/30 backdrop-blur-md text-white px-5 py-2.5 text-[13px] uppercase tracking-[0.12em] hover:bg-[var(--color-warm)] hover:border-[var(--color-warm)] transition-colors"
+                    className="mt-7 inline-flex items-center gap-2 bg-white/10 border border-white/30 backdrop-blur-md text-white px-5 py-2.5 min-h-[44px] text-[13px] uppercase tracking-[0.12em] hover:bg-[var(--color-warm)] hover:border-[var(--color-warm)] transition-colors"
                   >
                     <Maximize2 size={14} strokeWidth={1.5} />
                     Se alla {fullGallery.length} bilder
@@ -218,7 +218,7 @@ export function Projects() {
           type="button"
           onClick={prev}
           aria-label="Föregående projekt"
-          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/10 border border-white/25 backdrop-blur-md text-white hover:bg-white/20 transition-colors"
+          className="absolute left-3 md:left-6 bottom-2 top-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/10 border border-white/25 backdrop-blur-md text-white hover:bg-white/20 transition-colors"
         >
           <ChevronLeft size={22} strokeWidth={1.5} />
         </button>
@@ -226,12 +226,12 @@ export function Projects() {
           type="button"
           onClick={next}
           aria-label="Nästa projekt"
-          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/10 border border-white/25 backdrop-blur-md text-white hover:bg-white/20 transition-colors"
+          className="absolute right-3 md:right-6 bottom-2 top-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/10 border border-white/25 backdrop-blur-md text-white hover:bg-white/20 transition-colors"
         >
           <ChevronRight size={22} strokeWidth={1.5} />
         </button>
 
-        <div className="absolute bottom-7 md:bottom-10 left-0 right-0 z-20 flex justify-center gap-3">
+        <div className="absolute bottom-7 md:bottom-10 left-0 right-0 z-20 flex justify-center gap-4">
           {PROJECTS.map((p, i) => (
             <button
               key={p.name}
@@ -239,7 +239,7 @@ export function Projects() {
               onClick={() => goTo(i)}
               aria-label={`Gå till projekt ${i + 1}: ${p.name}`}
               aria-current={i === index}
-              className={`h-1.5 transition-all duration-500 ${
+              className={`relative before:absolute before:-inset-x-2 before:-inset-y-[19px] before:content-[''] h-1.5 transition-all duration-500 ${
                 i === index ? "w-10 bg-[var(--color-warm)]" : "w-5 bg-white/35 hover:bg-white/60"
               }`}
             />
