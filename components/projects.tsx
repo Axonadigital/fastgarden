@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 import { Lightbox } from "./lightbox";
@@ -100,6 +100,27 @@ export function Projects() {
     });
   };
 
+  const touchStartX = useRef<number | null>(null);
+  const touchDeltaX = useRef(0);
+  const SWIPE_THRESHOLD = 40;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+    setPaused(true);
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+  };
+  const onTouchEnd = () => {
+    if (touchDeltaX.current > SWIPE_THRESHOLD) prev();
+    else if (touchDeltaX.current < -SWIPE_THRESHOLD) next();
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+    setPaused(false);
+  };
+
   return (
     <section
       id="projekt"
@@ -109,7 +130,29 @@ export function Projects() {
       aria-roledescription="carousel"
       aria-label="Referensprojekt"
     >
-      <div className="relative min-h-[640px] md:min-h-[760px] lg:min-h-[820px] flex items-center">
+      {/* Preload every slide's images so switching slides (swipe, arrows, dots) is instant */}
+      <div aria-hidden className="absolute w-px h-px overflow-hidden opacity-0 pointer-events-none">
+        {PROJECTS.map((p) => (
+          <Image key={p.images[0].src} src={p.images[0].src} alt="" fill priority sizes="100vw" />
+        ))}
+        {PROJECTS.filter((p) => p.images[1]).map((p) => (
+          <Image
+            key={p.images[1].src}
+            src={p.images[1].src}
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 768px) 80vw, 40vw"
+          />
+        ))}
+      </div>
+
+      <div
+        className="relative min-h-[520px] md:min-h-[760px] lg:min-h-[820px] flex items-center touch-pan-y"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <AnimatePresence mode="sync">
           <motion.div
             key={`bg-${index}`}
@@ -154,7 +197,7 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-8 lg:px-16 py-24 md:py-32 pointer-events-none">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-8 lg:px-16 py-16 md:py-32 pointer-events-none">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center">
             <AnimatePresence mode="wait">
               <motion.div
@@ -183,7 +226,7 @@ export function Projects() {
             </AnimatePresence>
 
             {hasOverlay && (
-              <div className="md:col-span-5 lg:col-span-6 relative md:flex md:justify-end pointer-events-auto">
+              <div className="hidden md:col-span-5 lg:col-span-6 relative md:flex md:justify-end pointer-events-auto">
                 <AnimatePresence mode="wait">
                   <motion.button
                     type="button"
