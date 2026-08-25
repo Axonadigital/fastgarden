@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fastgarden",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "fastgarden"
+    }
+  ],
+  // Bildoptimering via Cloudflare Images. Ersätter sharp, som inte kan
+  // köras på Workers. Free tier: 5 000 unika transformationer/månad.
+  "images": {
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
