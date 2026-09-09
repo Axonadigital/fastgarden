@@ -28,11 +28,11 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    name: "Prisbelönt timmerhus, Åre",
+    name: "Ny- Om och tillbyggnad i Åre",
     gallerySlug: "timmerhus-i-are",
     images: [
-      { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-hero.webp", alt: "Prisbelönt timmerhus i Åre, exteriör" },
-      { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-02.webp", alt: "Prisbelönt timmerhus i Åre, interiör med specialritade möbler" },
+      { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-hero.webp", alt: "Ny- om- och tillbyggnad i Åre, exteriör" },
+      { src: "/images/projects/timmerhus-i-are/timmerhus-i-are-02.webp", alt: "Ny- om- och tillbyggnad i Åre, interiör med specialritade möbler" },
     ],
   },
   {
