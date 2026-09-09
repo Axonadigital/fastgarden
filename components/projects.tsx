@@ -52,11 +52,11 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    name: "Timmerhus, Storhogna",
+    name: "Utemiljö och komplementbyggnader, Storhogna",
     gallerySlug: "timmerhus-i-storhogna",
     images: [
-      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-hero.webp", alt: "Timmerhus i Storhogna, exteriör i fjällmiljö" },
-      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-08.webp", alt: "Timmerhus i Storhogna, detalj" },
+      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-hero.webp", alt: "Utemiljö och komplementbyggnader i Storhogna, exteriör i fjällmiljö" },
+      { src: "/images/projects/timmerhus-i-storhogna/timmerhus-i-storhogna-08.webp", alt: "Utemiljö och komplementbyggnader i Storhogna, detalj" },
     ],
   },
 ];
